@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Clínica Dental Ilident · Dentista en el centro de Elche</title>
+<meta name="description" content="Clínica Dental Ilident, en el centro de Elche. Implantología, ortodoncia, endodoncia, periodoncia, cirugía oral, prótesis y odontopediatría. Pide cita.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231E5B50'/><text x='50' y='70' font-size='62' text-anchor='middle' fill='white' font-family='Georgia,serif'>I</text></svg>">
+<style>
+:root{
+  --paper:#F3F6F5; --surface:#FFFFFF; --ink:#10302B; --muted:#55645F; --line:#D4DEDA;
+  --brand:#1E5B50; --brand-ink:#FFFFFF; --brand-soft:#E3EFEC; --accent:#A9762A; --accent-soft:#F5EAD8;
+  --tooth:#FFFFFF; --tooth-line:#AFC1BC; --ok:#2E7D5B; --closed:#9A4B3C;
+  --serif:"Newsreader", Georgia, "Times New Roman", serif;
+  --sans:"Hanken Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color-scheme: light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0D1917; --surface:#14231F; --ink:#E5EEEB; --muted:#9CB0A9; --line:#29403A;
+    --brand:#6DB6A4; --brand-ink:#0B1A17; --brand-soft:#1A332D; --accent:#D9A65A; --accent-soft:#3A2E1C;
+    --tooth:#1E302B; --tooth-line:#4C6660; --ok:#6FCB9C; --closed:#E08C78; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0D1917; --surface:#14231F; --ink:#E5EEEB; --muted:#9CB0A9; --line:#29403A;
+  --brand:#6DB6A4; --brand-ink:#0B1A17; --brand-soft:#1A332D; --accent:#D9A65A; --accent-soft:#3A2E1C;
+  --tooth:#1E302B; --tooth-line:#4C6660; --ok:#6FCB9C; --closed:#E08C78; color-scheme: dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth; scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px)}
+body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased}
+img,svg,iframe{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent); outline-offset:3px; border-radius:6px}
+.wrap{width:min(1160px, 100% - 40px); margin-inline:auto}
+h1,h2,h3{font-family:var(--serif); font-weight:500; line-height:1.12; margin:0; letter-spacing:-.01em}
+h2{font-size:clamp(2rem, 4vw, 2.9rem)}
+h3{font-size:1.45rem}
+p{margin:0}
+.lead{color:var(--muted); font-size:1.1rem; max-width:58ch}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:.5em; font:600 1rem/1 var(--sans); padding:.95em 1.4em; border-radius:999px; border:1.5px solid transparent; cursor:pointer; text-decoration:none; transition:background .2s, color .2s, border-color .2s}
+.btn-primary{background:var(--brand); color:var(--brand-ink)}
+.btn-primary:hover{filter:brightness(1.08)}
+.btn-ghost{background:transparent; color:var(--ink); border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--ink)}
+
+/* Header */
+header.site{position:sticky; top:0; z-index:20; background:color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--line); padding-top:env(safe-area-inset-top,0px); margin-top:calc(-1 * env(safe-area-inset-top,0px))}
+body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:30; background:var(--paper)}
+.bar{display:flex; align-items:center; justify-content:space-between; height:68px; gap:20px}
+.logo{display:flex; align-items:baseline; gap:.45rem; text-decoration:none}
+.logo b{font-family:var(--serif); font-weight:600; font-size:1.65rem; letter-spacing:-.02em}
+.logo span{font-size:.85rem; color:var(--muted)}
+nav.main{display:flex; gap:28px; font-weight:500; font-size:.97rem}
+nav.main a{text-decoration:none; color:var(--muted)}
+nav.main a:hover{color:var(--ink)}
+.bar .btn{padding:.75em 1.15em}
+@media (max-width:860px){ nav.main{display:none} .logo span{display:none} }
+
+/* Hero */
+.hero{padding:64px 0 56px}
+.hero-grid{display:grid; grid-template-columns:1fr 1.05fr; gap:56px; align-items:center}
+.hero h1{font-size:clamp(2.5rem, 5.2vw, 3.9rem); max-width:14ch; margin-bottom:22px}
+.hero .lead{margin-bottom:30px}
+.hero-ctas{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:36px}
+.facts{display:flex; flex-wrap:wrap; gap:10px 26px; color:var(--muted); font-size:.95rem; padding:0; margin:0; list-style:none}
+.facts li{display:flex; align-items:center; gap:.5em}
+.facts strong{color:var(--ink)}
+.stars{color:var(--accent); letter-spacing:1px}
+@media (max-width:980px){ .hero-grid{grid-template-columns:1fr; gap:40px} .hero{padding-top:40px} }
+
+/* Arch tool */
+.tool{background:var(--surface); border:1px solid var(--line); border-radius:28px; padding:26px 26px 22px}
+.tool-head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:6px}
+.tool-head h2{font-size:1.6rem}
+.tool-sub{color:var(--muted); font-size:.95rem; margin-bottom:8px}
+.arch{display:block; width:100%; max-width:420px; margin:0 auto; touch-action:manipulation}
+.arch .t{cursor:pointer}
+.arch .t rect{fill:var(--tooth); stroke:var(--tooth-line); stroke-width:1.4; transition:fill .15s, stroke .15s}
+.arch .t:hover rect{stroke:var(--brand)}
+.arch .t[aria-pressed="true"] rect{fill:var(--accent); stroke:var(--accent)}
+.arch .t:focus{outline:none}
+.arch .t:focus-visible rect{stroke:var(--accent); stroke-width:3}
+.arch text{font:500 11px var(--sans); fill:var(--muted)}
+.sel-line{min-height:1.6em; font-size:.95rem; color:var(--muted); margin:6px 0 14px; text-align:center}
+.sel-line b{color:var(--ink); font-weight:600}
+.q{font-weight:600; font-size:.95rem; margin:4px 0 10px}
+.chips{display:flex; flex-wrap:wrap; gap:8px}
+.chip{font:500 .92rem var(--sans); color:var(--ink); background:transparent; border:1.5px solid var(--line); border-radius:999px; padding:.5em .95em; cursor:pointer}
+.chip:hover{border-color:var(--brand)}
+.chip[aria-pressed="true"]{background:var(--brand); border-color:var(--brand); color:var(--brand-ink)}
+.toggle{display:flex; align-items:center; gap:10px; margin-top:14px; font-size:.95rem; cursor:pointer}
+.toggle input{width:20px; height:20px; accent-color:var(--brand)}
+.result{margin-top:18px; border-top:1px solid var(--line); padding-top:16px}
+.result p{font-size:.97rem}
+.result ul{list-style:none; padding:0; margin:10px 0 14px; display:grid; gap:8px}
+.result li{background:var(--brand-soft); border-radius:14px; padding:.7em .95em; font-size:.95rem}
+.result li strong{display:block; font-weight:600}
+.result small{display:block; color:var(--muted); font-size:.82rem; margin-top:10px}
+.result-actions{display:flex; flex-wrap:wrap; gap:10px}
+.result-actions .btn{padding:.75em 1.15em; font-size:.95rem}
+
+/* Sections */
+section.block{padding:88px 0}
+.sec-head{display:grid; grid-template-columns:1fr 1fr; gap:24px 56px; align-items:end; margin-bottom:44px}
+@media (max-width:860px){ .sec-head{grid-template-columns:1fr} section.block{padding:64px 0} }
+
+/* Treatments */
+.treat{display:grid; grid-template-columns:300px 1fr; gap:0; background:var(--surface); border:1px solid var(--line); border-radius:28px; overflow:hidden}
+.treat-list{border-right:1px solid var(--line); padding:12px; display:flex; flex-direction:column; gap:2px}
+.treat-list button{all:unset; box-sizing:border-box; cursor:pointer; padding:.85em 1em; border-radius:14px; font-weight:500; color:var(--muted); display:flex; justify-content:space-between; align-items:center}
+.treat-list button:hover{color:var(--ink); background:var(--paper)}
+.treat-list button[aria-selected="true"]{background:var(--brand-soft); color:var(--ink); font-weight:600}
+.treat-list button:focus-visible{outline:3px solid var(--accent)}
+.treat-panel{padding:40px 44px}
+.treat-panel h3{font-size:2rem; margin-bottom:12px}
+.treat-panel .intro{font-size:1.08rem; max-width:60ch; margin-bottom:28px}
+.treat-cols{display:grid; grid-template-columns:1fr 1fr; gap:28px}
+.treat-cols h4{font:600 .95rem var(--sans); margin:0 0 8px; color:var(--brand)}
+.treat-cols p, .treat-cols li{color:var(--muted); font-size:.98rem}
+.treat-cols ul{margin:0; padding-left:1.1em}
+.treat-cta{margin-top:30px}
+@media (max-width:860px){
+  .treat{grid-template-columns:1fr}
+  .treat-list{border-right:0; border-bottom:1px solid var(--line); flex-direction:row; overflow-x:auto; scrollbar-width:none}
+  .treat-list button{white-space:nowrap}
+  .treat-panel{padding:28px 22px}
+  .treat-cols{grid-template-columns:1fr; gap:20px}
+}
+
+/* First visit */
+.steps{list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:1.5px solid var(--ink)}
+.steps li{padding:24px 24px 0 0}
+.steps .n{font-family:var(--serif); font-size:2.6rem; line-height:1; color:var(--accent); display:block; margin-bottom:14px}
+.steps h3{font-size:1.25rem; margin-bottom:8px}
+.steps p{color:var(--muted); font-size:.98rem}
+@media (max-width:860px){ .steps{grid-template-columns:1fr 1fr; row-gap:28px} }
+@media (max-width:520px){ .steps{grid-template-columns:1fr} }
+
+/* Visit / hours */
+.alt{background:var(--surface); border-block:1px solid var(--line)}
+.visit{display:grid; grid-template-columns:1fr 1.1fr; gap:56px; align-items:start}
+.status{display:inline-flex; align-items:center; gap:.6em; font-weight:600; padding:.55em 1em; border-radius:999px; background:var(--paper); border:1px solid var(--line); margin:22px 0 26px}
+.dot{width:10px; height:10px; border-radius:50%; background:var(--closed)}
+.status.open .dot{background:var(--ok); box-shadow:0 0 0 4px color-mix(in srgb, var(--ok) 25%, transparent)}
+table.hours{width:100%; border-collapse:collapse; font-size:1rem; margin-bottom:28px}
+table.hours td{padding:.7em 0; border-bottom:1px solid var(--line)}
+table.hours td:last-child{text-align:right; font-variant-numeric:tabular-nums}
+table.hours tr.today td{font-weight:700}
+table.hours tr.today td:first-child::after{content:" (hoy)"; font-weight:400; color:var(--muted)}
+.addr{font-size:1.05rem; margin-bottom:16px}
+.amen{list-style:none; padding:0; margin:22px 0 0; display:grid; gap:10px; color:var(--muted); font-size:.97rem}
+.amen li{display:flex; gap:.7em; align-items:flex-start}
+.amen svg{flex:none; margin-top:3px; color:var(--brand)}
+.map{border-radius:28px; overflow:hidden; border:1px solid var(--line); aspect-ratio:4/3.4; background:var(--paper)}
+.map iframe{width:100%; height:100%; border:0; display:block}
+@media (max-width:860px){ .visit{grid-template-columns:1fr; gap:36px} }
+
+/* Booking */
+.book{display:grid; grid-template-columns:.85fr 1.15fr; gap:56px}
+.form{background:var(--surface); border:1px solid var(--line); border-radius:28px; padding:32px}
+.row{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+.field{margin-bottom:20px}
+.field label, .field .lbl{display:block; font-weight:600; font-size:.93rem; margin-bottom:8px}
+.field input, .field select, .field textarea{width:100%; font:inherit; font-size:1rem; color:var(--ink); background:var(--paper); border:1.5px solid var(--line); border-radius:14px; padding:.8em .95em}
+.field textarea{min-height:92px; resize:vertical}
+.field input:focus, .field select:focus, .field textarea:focus{outline:none; border-color:var(--brand)}
+.field .err{color:var(--closed); font-size:.85rem; margin-top:6px; display:none}
+.field.invalid .err{display:block}
+.field.invalid input{border-color:var(--closed)}
+.days{display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; scrollbar-width:thin}
+.day{flex:none; width:66px; text-align:center; border:1.5px solid var(--line); border-radius:16px; padding:.55em 0; cursor:pointer; background:transparent; color:var(--ink); font:inherit}
+.day small{display:block; font-size:.78rem; color:var(--muted)}
+.day b{display:block; font-size:1.25rem; font-family:var(--serif); font-weight:500}
+.day[aria-pressed="true"]{background:var(--brand); border-color:var(--brand); color:var(--brand-ink)}
+.day[aria-pressed="true"] small{color:inherit; opacity:.85}
+.hint{font-size:.85rem; color:var(--muted); margin-top:8px}
+.teeth-note{background:var(--accent-soft); border-radius:14px; padding:.75em 1em; font-size:.93rem; margin-bottom:20px; display:none}
+.teeth-note.show{display:block}
+.done{display:none; text-align:left}
+.done.show{display:block}
+.done h3{margin-bottom:10px}
+.done pre{white-space:pre-wrap; font:inherit; font-size:.95rem; background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:1em; margin:16px 0}
+.side-list{list-style:none; padding:0; margin:28px 0 0; display:grid; gap:18px}
+.side-list li{border-top:1px solid var(--line); padding-top:16px}
+.side-list strong{display:block; margin-bottom:2px}
+.side-list span{color:var(--muted); font-size:.97rem}
+@media (max-width:860px){ .book{grid-template-columns:1fr; gap:32px} .form{padding:22px} .row{grid-template-columns:1fr; gap:0} }
+
+/* Footer */
+footer{padding:48px 0 120px; color:var(--muted); font-size:.92rem}
+.foot{display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px; border-top:1px solid var(--line); padding-top:28px}
+.foot b{font-family:var(--serif); color:var(--ink); font-size:1.3rem; font-weight:600}
+
+/* Mobile bar */
+.mbar{position:fixed; left:0; right:0; bottom:0; z-index:25; display:none; gap:10px; padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px)); background:var(--surface); border-top:1px solid var(--line)}
+.mbar .btn{flex:1; padding:.85em}
+@media (max-width:860px){ .mbar{display:flex} footer{padding-bottom:110px} }
+
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{transition:none !important} }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="logo" href="#inicio" aria-label="Clínica Dental Ilident, inicio"><b>Ilident</b><span>Clínica Dental en Elche</span></a>
+    <nav class="main" aria-label="Principal">
+      <a href="#tratamientos">Tratamientos</a>
+      <a href="#primera-visita">Primera visita</a>
+      <a href="#horario">Horario y ubicación</a>
+    </nav>
+    <a class="btn btn-primary" href="#cita">Pedir cita</a>
+  </div>
+</header>
+
+<main id="inicio">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Todas las especialidades dentales, en el centro de Elche</h1>
+        <p class="lead">Implantes, ortodoncia, endodoncia, encías, cirugía oral, prótesis y dentista infantil en una misma clínica. Te explicamos qué tienes y qué opciones hay antes de empezar nada.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#cita">Pedir cita</a>
+          <a class="btn btn-ghost" href="#" data-tel>Llamar a la clínica</a>
+        </div>
+        <ul class="facts">
+          <li><span class="stars" aria-hidden="true">★★★★★</span><span><strong>5,0</strong> en Google, 42 reseñas</span></li>
+          <li>Acceso adaptado</li>
+          <li>Atención infantil</li>
+        </ul>
+      </div>
+
+      <!-- Herramienta interactiva -->
+      <div class="tool" id="orienta" aria-labelledby="tool-title">
+        <div class="tool-head"><h2 id="tool-title">¿Dónde te molesta?</h2></div>
+        <p class="tool-sub">Toca la pieza o piezas en el esquema y dinos qué notas. Te orientamos sobre qué tratamiento suele hacer falta.</p>
+        <svg class="arch" id="arch" viewBox="0 0 360 300" role="group" aria-label="Esquema de la boca: toca los dientes que te molestan"></svg>
+        <p class="sel-line" id="selLine" aria-live="polite">Ningún diente marcado (también puedes seguir sin marcar)</p>
+
+        <p class="q">¿Qué notas?</p>
+        <div class="chips" id="symptoms">
+          <button class="chip" type="button" data-s="dolor" aria-pressed="false">Dolor</button>
+          <button class="chip" type="button" data-s="sensibilidad" aria-pressed="false">Sensibilidad al frío o calor</button>
+          <button class="chip" type="button" data-s="sangrado" aria-pressed="false">Me sangran las encías</button>
+          <button class="chip" type="button" data-s="roto" aria-pressed="false">Diente roto o desgastado</button>
+          <button class="chip" type="button" data-s="falta" aria-pressed="false">Me falta un diente</button>
+          <button class="chip" type="button" data-s="torcidos" aria-pressed="false">Dientes torcidos</button>
+          <button class="chip" type="button" data-s="revision" aria-pressed="false">Solo una revisión</button>
+        </div>
+        <label class="toggle"><input type="checkbox" id="isChild"> La cita es para un niño o niña</label>
+
+        <div class="result" id="result" aria-live="polite">
+          <p>Marca al menos una opción y te diremos por dónde se suele empezar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRATAMIENTOS -->
+  <section class="block alt" id="tratamientos">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Tratamientos</h2>
+        <p class="lead">Cada especialidad, explicada sin tecnicismos: qué es, cuándo hace falta y cómo se hace.</p>
+      </div>
+      <div class="treat">
+        <div class="treat-list" role="tablist" aria-label="Especialidades" id="treatList"></div>
+        <div class="treat-panel" role="tabpanel" id="treatPanel" tabindex="0" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIMERA VISITA -->
+  <section class="block" id="primera-visita">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Cómo es tu primera visita</h2>
+        <p class="lead">Sin sorpresas: sabrás qué te pasa, qué opciones tienes y cuánto cuesta antes de decidir.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="n">1</span><h3>Pides cita</h3><p>Por teléfono o con el formulario de esta página. Te confirmamos día y hora.</p></li>
+        <li><span class="n">2</span><h3>Exploración</h3><p>Revisamos tu boca y, si hace falta, hacemos las radiografías para ver lo que no se ve a simple vista.</p></li>
+        <li><span class="n">3</span><h3>Diagnóstico claro</h3><p>Te enseñamos lo que hemos visto y te explicamos las opciones de tratamiento.</p></li>
+        <li><span class="n">4</span><h3>Presupuesto y plan</h3><p>Recibes el presupuesto por escrito y decides con calma cuándo empezar.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- HORARIO Y UBICACIÓN -->
+  <section class="block alt" id="horario">
+    <div class="wrap visit">
+      <div>
+        <h2>Horario y ubicación</h2>
+        <div class="status" id="status" role="status"><span class="dot"></span><span id="statusText">Comprobando horario…</span></div>
+        <table class="hours" id="hoursTable" aria-label="Horario semanal"></table>
+        <p class="addr"><strong>Pasaje Alejandro Ramos Folqués, 5</strong><br>03202 Elche (Alicante)</p>
+        <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Cl%C3%ADnica%20Dental%20Ilident%2C%20Passatge%20Alejandro%20Ramos%20Folqu%C3%A9s%205%2C%2003202%20Elx">Cómo llegar</a>
+        <ul class="amen">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Entrada y aseo accesibles en silla de ruedas</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Atendemos a niños y niñas</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pago con tarjeta y con el móvil</li>
+        </ul>
+      </div>
+      <div class="map">
+        <iframe title="Mapa de la Clínica Dental Ilident en Elche" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Cl%C3%ADnica%20Dental%20Ilident%2C%20Passatge%20Alejandro%20Ramos%20Folqu%C3%A9s%205%2C%2003202%20Elx&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- CITA -->
+  <section class="block" id="cita">
+    <div class="wrap book">
+      <div>
+        <h2>Pide tu cita</h2>
+        <p class="lead" style="margin-top:16px">Elige el día y la franja que mejor te vengan. Te contestamos para confirmar la hora exacta.</p>
+        <ul class="side-list">
+          <li><strong>¿Te duele mucho?</strong><span>Llámanos directamente y buscamos un hueco lo antes posible.</span></li>
+          <li><strong>¿Vienes por primera vez?</strong><span>Trae tus radiografías o informes anteriores si los tienes.</span></li>
+          <li><strong>¿Es para tu hijo o hija?</strong><span>Márcalo en el formulario y lo tendremos en cuenta al darte la cita.</span></li>
+        </ul>
+      </div>
+
+      <div class="form">
+        <form id="bookForm" novalidate>
+          <div class="teeth-note" id="teethNote"></div>
+          <div class="row">
+            <div class="field" id="f-name">
+              <label for="name">Nombre y apellidos</label>
+              <input id="name" name="name" autocomplete="name" required>
+              <p class="err">Escribe tu nombre para saber a quién llamamos.</p>
+            </div>
+            <div class="field" id="f-phone">
+              <label for="phone">Teléfono</label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
+              <p class="err">Escribe un teléfono de 9 cifras.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="reason">Motivo</label>
+              <select id="reason" name="reason">
+                <option>Revisión y limpieza</option>
+                <option>Dolor o urgencia</option>
+                <option>Implantología</option>
+                <option>Ortodoncia</option>
+                <option>Endodoncia</option>
+                <option>Periodoncia (encías)</option>
+                <option>Cirugía oral</option>
+                <option>Prótesis</option>
+                <option>Odontopediatría</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="who">Para quién</label>
+              <select id="who" name="who">
+                <option>Para mí</option>
+                <option>Para un niño o niña</option>
+                <option>Para otra persona adulta</option>
+              </select>
+            </div>
+          </div>
+          <div class="field" id="f-day">
+            <span class="lbl" id="dayLbl">Día preferido</span>
+            <div class="days" id="days" role="group" aria-labelledby="dayLbl"></div>
+            <p class="err">Elige un día.</p>
+          </div>
+          <div class="field">
+            <span class="lbl" id="slotLbl">Franja</span>
+            <div class="chips" id="slots" role="group" aria-labelledby="slotLbl">
+              <button class="chip" type="button" data-slot="Mañana" aria-pressed="true">Mañana</button>
+              <button class="chip" type="button" data-slot="Tarde" aria-pressed="false">Tarde</button>
+              <button class="chip" type="button" data-slot="Me da igual" aria-pressed="false">Me da igual</button>
+            </div>
+            <p class="hint" id="slotHint"></p>
+          </div>
+          <div class="field">
+            <label for="notes">Algo más que debamos saber (opcional)</label>
+            <textarea id="notes" name="notes"></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit" style="width:100%">Enviar solicitud de cita</button>
+          <p class="hint" style="text-align:center">Usaremos tus datos solo para gestionar la cita.</p>
+        </form>
+
+        <div class="done" id="done" role="status">
+          <h3>Solicitud de cita lista</h3>
+          <p>Se ha abierto la aplicación para enviarla. Si no se ha abierto, copia el mensaje y mándalo tú.</p>
+          <pre id="doneMsg"></pre>
+          <div class="result-actions">
+            <button class="btn btn-primary" type="button" id="copyMsg">Copiar mensaje</button>
+            <button class="btn btn-ghost" type="button" id="editMsg">Modificar solicitud</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><b>Ilident</b><br>Clínica Dental en Elche</div>
+    <div>Pasaje Alejandro Ramos Folqués, 5<br>03202 Elche (Alicante)</div>
+    <div>Lunes a jueves, de 10:00 a 21:00<br>Viernes, de 10:00 a 18:00</div>
+    <div><a href="#" data-tel data-tel-text>Teléfono</a><br><a href="https://maps.google.com/maps?cid=14307079237394927604" target="_blank" rel="noopener">Opiniones en Google</a></div>
+  </div>
+  <div class="wrap" style="margin-top:22px">© <span id="year"></span> Clínica Dental Ilident. Aviso legal y política de privacidad.</div>
+</footer>
+
+<div class="mbar">
+  <a class="btn btn-ghost" href="#" data-tel>Llamar</a>
+  <a class="btn btn-primary" href="#cita">Pedir cita</a>
+</div>
+
+<script>
+/* ================= CONFIGURACIÓN: rellenar con los datos reales de la clínica ================= */
+const CONFIG = {
+  telefono: "+34640365379",        // Teléfono de la clínica, formato internacional sin espacios
+  telefonoVisible: "640 36 53 79", // Cómo se muestra en la web
+  whatsapp: "34640365379",         // Número de WhatsApp sin "+" (ej. 34600111222). Vacío = se envía por email
+  email: "info@ilident.es"         // Email de la clínica (se usa si no hay WhatsApp)
+};
+/* ============================================================================================== */
+
+const HOURS = {1:[10,21],2:[10,21],3:[10,21],4:[10,21],5:[10,18]}; // 1 = lunes
+const DAY_NAMES = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+const DAY_SHORT = ["dom","lun","mar","mié","jue","vie","sáb"];
+
+document.getElementById("year").textContent = new Date().getFullYear();
+document.querySelectorAll("[data-tel]").forEach(a => {
+  a.href = "tel:" + CONFIG.telefono;
+  if (a.hasAttribute("data-tel-text")) a.textContent = CONFIG.telefonoVisible;
+});
+
+/* ---------- Esquema dental (numeración FDI) ---------- */
+const NS = "http://www.w3.org/2000/svg";
+const KIND = {1:"incisivo central",2:"incisivo lateral",3:"canino",4:"primer premolar",5:"segundo premolar",6:"primer molar",7:"segundo molar",8:"muela del juicio"};
+const QUAD = {1:"superior derecho",2:"superior izquierdo",3:"inferior izquierdo",4:"inferior derecho"};
+const W = {1:.95,2:.8,3:.85,4:.85,5:.85,6:1.2,7:1.12,8:1.02};
+const selected = new Set();
+const arch = document.getElementById("arch");
+
+function buildArch(qLeft, qRight, upper){
+  const order = [];
+  for (let n=8;n>=1;n--) order.push([qLeft,n]);
+  for (let n=1;n<=8;n++) order.push([qRight,n]);
+  const total = order.reduce((s,[,n])=>s+W[n],0);
+  const cx=180, rx=138, ry=104, cy = upper ? 136 : 164;
+  let acc = 0;
+  order.forEach(([q,n])=>{
+    const mid = acc + W[n]/2; acc += W[n];
+    const a = Math.PI - (mid/total)*Math.PI;
+    const x = cx + rx*Math.cos(a);
+    const y = upper ? cy - ry*Math.sin(a) : cy + ry*Math.sin(a);
+    const dx = -rx*Math.sin(a), dy = (upper ? -1 : 1)*ry*Math.cos(a);
+    const rot = Math.atan2(dy,dx)*180/Math.PI;
+    const w = W[n]*21.5, h = n>=6 ? 27 : n>=4 ? 24 : 22;
+    const fdi = `${q}${n}`;
+    const g = document.createElementNS(NS,"g");
+    g.setAttribute("class","t"); g.setAttribute("tabindex","0"); g.setAttribute("role","button");
+    g.setAttribute("aria-pressed","false"); g.dataset.fdi = fdi;
+    g.setAttribute("aria-label", `Diente ${fdi}, ${KIND[n]} ${QUAD[q]}`);
+    g.setAttribute("transform", `translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${rot.toFixed(1)})`);
+    const r = document.createElementNS(NS,"rect");
+    r.setAttribute("x",-w/2); r.setAttribute("y",-h/2); r.setAttribute("width",w); r.setAttribute("height",h);
+    r.setAttribute("rx", n<=3 ? 6 : 8);
+    const title = document.createElementNS(NS,"title"); title.textContent = `${fdi} · ${KIND[n]}`;
+    g.append(title, r); arch.append(g);
+  });
+}
+buildArch(1,2,true);
+buildArch(4,3,false);
+[["Derecha",8,152],["Izquierda",352,152]].forEach(([t,x,y])=>{
+  const tx = document.createElementNS(NS,"text"); tx.textContent=t; tx.setAttribute("x",x); tx.setAttribute("y",y);
+  tx.setAttribute("text-anchor", x<180 ? "start" : "end"); arch.append(tx);
+});
+[["Arriba",180,92],["Abajo",180,214]].forEach(([t,x,y])=>{
+  const tx = document.createElementNS(NS,"text"); tx.textContent=t; tx.setAttribute("x",x); tx.setAttribute("y",y);
+  tx.setAttribute("text-anchor","middle"); arch.append(tx);
+});
+
+function toothName(fdi){ return `${KIND[+fdi[1]]} ${QUAD[+fdi[0]]}`; }
+function toggleTooth(g){
+  const f = g.dataset.fdi;
+  if (selected.has(f)) selected.delete(f); else selected.add(f);
+  g.setAttribute("aria-pressed", selected.has(f));
+  updateSel(); recommend();
+}
+arch.addEventListener("click", e => { const g = e.target.closest(".t"); if (g) toggleTooth(g); });
+arch.addEventListener("keydown", e => { const g = e.target.closest(".t"); if (g && (e.key==="Enter"||e.key===" ")){ e.preventDefault(); toggleTooth(g); } });
+
+function updateSel(){
+  const el = document.getElementById("selLine");
+  const list = [...selected];
+  if (!list.length){ el.textContent = "Ningún diente marcado (también puedes seguir sin marcar)"; return; }
+  if (list.length === 1){ el.innerHTML = `Has marcado el <b>${list[0]}</b>: ${toothName(list[0])}`; return; }
+  el.innerHTML = `Has marcado <b>${list.length} piezas</b>: ${list.sort().join(", ")}`;
+}
+
+/* ---------- Recomendación orientativa ---------- */
+const symptoms = new Set();
+document.getElementById("symptoms").addEventListener("click", e => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  const s = b.dataset.s;
+  if (symptoms.has(s)) symptoms.delete(s); else symptoms.add(s);
+  b.setAttribute("aria-pressed", symptoms.has(s)); recommend();
+});
+document.getElementById("isChild").addEventListener("change", recommend);
+
+const REC = {
+  odontopediatria:{t:"Odontopediatría", d:"Revisamos a tu hijo o hija con calma y a su ritmo.", form:"Odontopediatría"},
+  implantologia:{t:"Implantología", d:"Para sustituir el diente que falta con una pieza fija.", form:"Implantología"},
+  protesis:{t:"Prótesis", d:"Coronas, fundas o puentes para devolver forma y función.", form:"Prótesis"},
+  periodoncia:{t:"Periodoncia", d:"El sangrado de encías suele indicar inflamación que conviene tratar pronto.", form:"Periodoncia (encías)"},
+  ortodoncia:{t:"Ortodoncia", d:"Estudiamos la mordida y te contamos las opciones para alinear los dientes.", form:"Ortodoncia"},
+  endodoncia:{t:"Posible endodoncia", d:"Cuando el dolor viene del nervio del diente, la endodoncia permite conservarlo.", form:"Dolor o urgencia"},
+  cirugia:{t:"Cirugía oral", d:"Las muelas del juicio que duelen o no tienen sitio a menudo se extraen.", form:"Cirugía oral"},
+  revision:{t:"Revisión y limpieza", d:"Exploramos dientes y encías para ver de dónde viene la molestia.", form:"Revisión y limpieza"}
+};
+let lastRecs = [];
+function recommend(){
+  const child = document.getElementById("isChild").checked;
+  const out = [];
+  const add = k => { if (!out.includes(k)) out.push(k); };
+  const wisdom = [...selected].some(f => f[1]==="8");
+  if (child) add("odontopediatria");
+  if (symptoms.has("dolor")) add(wisdom ? "cirugia" : "endodoncia");
+  if (symptoms.has("falta")) { add("implantologia"); add("protesis"); }
+  if (symptoms.has("sangrado")) add("periodoncia");
+  if (symptoms.has("roto")) add("protesis");
+  if (symptoms.has("torcidos")) add("ortodoncia");
+  if (symptoms.has("sensibilidad") || symptoms.has("revision")) add("revision");
+  if (child) { const i = out.indexOf("odontopediatria"); out.splice(i,1); out.unshift("odontopediatria"); }
+  lastRecs = out;
+  const box = document.getElementById("result");
+  if (!out.length){
+    box.innerHTML = selected.size
+      ? `<p>Ahora dinos qué notas en ${selected.size===1?"ese diente":"esas piezas"}.</p>`
+      : `<p>Marca al menos una opción y te diremos por dónde se suele empezar.</p>`;
+    return;
+  }
+  box.innerHTML = `<p>Por lo que nos cuentas, lo habitual es empezar por:</p>
+    <ul>${out.map(k=>`<li><strong>${REC[k].t}</strong>${REC[k].d}</li>`).join("")}</ul>
+    <div class="result-actions">
+      <button class="btn btn-primary" type="button" id="useRec">Pedir cita con esto</button>
+      ${out.some(k=>k!=="revision")?'<button class="btn btn-ghost" type="button" id="seeRec">Ver el tratamiento</button>':''}
+    </div>
+    <small>Es solo una orientación: el diagnóstico lo hace el dentista en la consulta.</small>`;
+  document.getElementById("useRec").onclick = fillFromTool;
+  const see = document.getElementById("seeRec");
+  if (see) see.onclick = () => { selectTreat(out.find(k=>k!=="revision")); document.getElementById("tratamientos").scrollIntoView(); };
+}
+
+function fillFromTool(){
+  if (lastRecs.length) document.getElementById("reason").value = REC[lastRecs[0]].form;
+  if (document.getElementById("isChild").checked) document.getElementById("who").value = "Para un niño o niña";
+  const note = document.getElementById("teethNote");
+  const parts = [];
+  if (selected.size) parts.push(`Piezas marcadas: ${[...selected].sort().map(f=>`${f} (${toothName(f)})`).join(", ")}`);
+  const sNames = [...document.querySelectorAll('#symptoms .chip[aria-pressed="true"]')].map(b=>b.textContent.toLowerCase());
+  if (sNames.length) parts.push(`Síntomas: ${sNames.join(", ")}`);
+  note.textContent = parts.join(". ") + (parts.length ? "." : "");
+  note.classList.toggle("show", parts.length > 0);
+  document.getElementById("cita").scrollIntoView();
+  setTimeout(()=>document.getElementById("name").focus({preventScroll:true}), 400);
+}
+
+/* ---------- Tratamientos ---------- */
+const TREATS = [
+  {id:"implantologia", name:"Implantología",
+   intro:"Un implante es una raíz artificial de titanio que se coloca en el hueso para sostener un diente fijo. Se ve, se nota y se usa como un diente propio.",
+   when:["Te falta uno o varios dientes","Llevas una dentadura postiza que se mueve","Te han dicho que hay que extraer un diente"],
+   how:"Primero valoramos el hueso con radiografías. Colocamos el implante con anestesia local y, cuando se ha unido al hueso, ponemos encima la corona definitiva."},
+  {id:"ortodoncia", name:"Ortodoncia",
+   intro:"La ortodoncia corrige la posición de los dientes y la mordida. No es solo estética: unos dientes bien colocados se limpian mejor y se desgastan menos.",
+   when:["Dientes torcidos, montados o separados","La mordida no encaja bien","Revisión de crecimiento en niños"],
+   how:"Hacemos un estudio con fotos y radiografías, te enseñamos cómo está tu mordida y te proponemos el tipo de aparato y la duración aproximada."},
+  {id:"endodoncia", name:"Endodoncia",
+   intro:"La endodoncia limpia y sella el interior del diente cuando el nervio está dañado o infectado. Así se conserva el diente en vez de extraerlo.",
+   when:["Dolor intenso o que aparece solo","Sensibilidad al calor que no se va","Un flemón o un diente que ha cambiado de color"],
+   how:"Con anestesia local, limpiamos los conductos del diente y los sellamos. Después reconstruimos el diente para protegerlo."},
+  {id:"periodoncia", name:"Periodoncia",
+   intro:"La periodoncia trata las encías y el hueso que sujeta los dientes. Una enfermedad de encías sin tratar es una causa frecuente de pérdida de dientes en adultos.",
+   when:["Te sangran las encías al cepillarte","Mal aliento persistente","Dientes que se mueven o encías retraídas"],
+   how:"Medimos la salud de cada encía, hacemos una limpieza profunda por zonas y te damos pautas de cuidado y revisiones periódicas."},
+  {id:"cirugia", name:"Cirugía oral",
+   intro:"La cirugía oral incluye las extracciones complejas, como las muelas del juicio, y la preparación del hueso para implantes.",
+   when:["Muela del juicio que duele o no tiene sitio","Dientes que no se pueden conservar","Hueso insuficiente para un implante"],
+   how:"Te explicamos el procedimiento y los cuidados de antes y después. Se hace con anestesia local y te damos instrucciones para una recuperación cómoda."},
+  {id:"protesis", name:"Prótesis",
+   intro:"Las prótesis devuelven la forma y la función a dientes muy dañados o que faltan: coronas, puentes y dentaduras, fijas o removibles.",
+   when:["Diente roto o muy desgastado","Faltan varias piezas","Dentadura antigua que ya no ajusta"],
+   how:"Tomamos medidas, elegimos contigo el color y la forma, y ajustamos la prótesis hasta que te resulte cómoda."},
+  {id:"odontopediatria", name:"Odontopediatría",
+   intro:"Atención dental para niños y niñas, desde los primeros dientes de leche. Buscamos que cada visita sea tranquila y que pierdan el miedo al dentista.",
+   when:["Primera revisión de tu hijo o hija","Caries en dientes de leche","Golpes en los dientes o dudas sobre cómo salen"],
+   how:"Explicamos cada paso con palabras que entiendan, revisamos dientes y crecimiento y os damos consejos de higiene y alimentación a la familia."}
+];
+const list = document.getElementById("treatList"), panel = document.getElementById("treatPanel");
+TREATS.forEach(t => {
+  const b = document.createElement("button");
+  b.type="button"; b.setAttribute("role","tab"); b.id="tab-"+t.id; b.textContent=t.name;
+  b.setAttribute("aria-controls","treatPanel"); b.setAttribute("aria-selected","false"); b.tabIndex=-1;
+  b.addEventListener("click", ()=>selectTreat(t.id));
+  list.append(b);
+});
+list.addEventListener("keydown", e => {
+  const tabs=[...list.children]; const i=tabs.indexOf(document.activeElement);
+  if (i<0) return;
+  let j=null;
+  if (["ArrowDown","ArrowRight"].includes(e.key)) j=(i+1)%tabs.length;
+  if (["ArrowUp","ArrowLeft"].includes(e.key)) j=(i-1+tabs.length)%tabs.length;
+  if (j!==null){ e.preventDefault(); tabs[j].focus(); selectTreat(TREATS[j].id); }
+});
+function selectTreat(id){
+  const t = TREATS.find(x=>x.id===id) || TREATS[0];
+  [...list.children].forEach(b=>{ const on=b.id==="tab-"+t.id; b.setAttribute("aria-selected",on); b.tabIndex=on?0:-1; });
+  panel.setAttribute("aria-labelledby","tab-"+t.id);
+  panel.innerHTML = `<h3>${t.name}</h3><p class="intro">${t.intro}</p>
+    <div class="treat-cols">
+      <div><h4>Cuándo se indica</h4><ul>${t.when.map(w=>`<li>${w}</li>`).join("")}</ul></div>
+      <div><h4>Cómo lo hacemos</h4><p>${t.how}</p></div>
+    </div>
+    <div class="treat-cta"><button class="btn btn-primary" type="button" id="treatBook">Pedir cita de ${t.name.toLowerCase()}</button></div>`;
+  document.getElementById("treatBook").onclick = () => {
+    const map = {periodoncia:"Periodoncia (encías)", cirugia:"Cirugía oral"};
+    document.getElementById("reason").value = map[t.id] || t.name;
+    if (t.id==="odontopediatria") document.getElementById("who").value = "Para un niño o niña";
+    document.getElementById("cita").scrollIntoView();
+  };
+}
+selectTreat("implantologia");
+
+/* ---------- Horario en vivo (hora de Elche) ---------- */
+function madridNow(){
+  const p = Object.fromEntries(new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Madrid",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false,weekday:"short"}).formatToParts(new Date()).map(x=>[x.type,x.value]));
+  const wd = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[p.weekday];
+  return {y:+p.year, m:+p.month, d:+p.day, h:+p.hour % 24, min:+p.minute, wd};
+}
+function renderHours(){
+  const now = madridNow();
+  const tbl = document.getElementById("hoursTable");
+  tbl.innerHTML = [1,2,3,4,5,6,0].map(d => {
+    const h = HOURS[d];
+    return `<tr class="${d===now.wd?"today":""}"><td>${DAY_NAMES[d]}</td><td>${h?`${h[0]}:00 – ${h[1]}:00`:"Cerrado"}</td></tr>`;
+  }).join("");
+  const st = document.getElementById("status"), tx = document.getElementById("statusText");
+  const t = now.h + now.min/60, today = HOURS[now.wd];
+  if (today && t >= today[0] && t < today[1]){
+    st.classList.add("open");
+    const left = today[1] - t;
+    tx.textContent = left <= 1 ? `Abierto, cierra en ${Math.max(1,Math.round(left*60))} min` : `Abierto ahora, hasta las ${today[1]}:00`;
+  } else {
+    st.classList.remove("open");
+    if (today && t < today[0]) { tx.textContent = `Cerrado, abre hoy a las ${today[0]}:00`; return; }
+    for (let i=1;i<=7;i++){
+      const d=(now.wd+i)%7;
+      if (HOURS[d]){ tx.textContent = `Cerrado, abre ${i===1?"mañana":"el "+DAY_NAMES[d].toLowerCase()} a las ${HOURS[d][0]}:00`; break; }
+    }
+  }
+}
+renderHours(); setInterval(renderHours, 60000);
+
+/* ---------- Formulario de cita ---------- */
+let chosenDay = null, chosenSlot = "Mañana";
+function buildDays(){
+  const now = madridNow();
+  const base = Date.UTC(now.y, now.m-1, now.d);
+  const box = document.getElementById("days"); box.innerHTML="";
+  let count=0;
+  for (let i=0; i<21 && count<10; i++){
+    const dt = new Date(base + i*864e5);
+    const wd = dt.getUTCDay(), h = HOURS[wd];
+    if (!h) continue;
+    if (i===0 && now.h + now.min/60 >= h[1]-1) continue;
+    const label = `${DAY_NAMES[wd].toLowerCase()} ${dt.getUTCDate()}/${dt.getUTCMonth()+1}`;
+    const b = document.createElement("button");
+    b.type="button"; b.className="day"; b.setAttribute("aria-pressed","false");
+    b.dataset.label = label; b.dataset.wd = wd;
+    b.setAttribute("aria-label", (i===0?"Hoy, ":i===1?"Mañana, ":"") + label);
+    b.innerHTML = `<small>${i===0?"hoy":i===1?"mañana":DAY_SHORT[wd]}</small><b>${dt.getUTCDate()}</b>`;
+    b.onclick = () => {
+      box.querySelectorAll(".day").forEach(x=>x.setAttribute("aria-pressed","false"));
+      b.setAttribute("aria-pressed","true"); chosenDay = b;
+      document.getElementById("f-day").classList.remove("invalid"); updateSlotHint();
+    };
+    box.append(b); count++;
+  }
+}
+function updateSlotHint(){
+  const hint = document.getElementById("slotHint");
+  if (!chosenDay){ hint.textContent=""; return; }
+  const h = HOURS[+chosenDay.dataset.wd];
+  hint.textContent = chosenSlot==="Mañana" ? "De 10:00 a 14:00" : chosenSlot==="Tarde" ? `De 14:00 a ${h[1]}:00` : `Cualquier hora entre las 10:00 y las ${h[1]}:00`;
+}
+buildDays();
+document.getElementById("slots").addEventListener("click", e=>{
+  const b = e.target.closest(".chip"); if (!b) return;
+  document.querySelectorAll("#slots .chip").forEach(x=>x.setAttribute("aria-pressed","false"));
+  b.setAttribute("aria-pressed","true"); chosenSlot = b.dataset.slot; updateSlotHint();
+});
+
+const form = document.getElementById("bookForm");
+form.addEventListener("submit", e=>{
+  e.preventDefault();
+  const name = document.getElementById("name").value.trim(), phone = document.getElementById("phone").value.replace(/\s|-/g,"");
+  let ok = true;
+  const fn = document.getElementById("f-name"), fp = document.getElementById("f-phone"), fd = document.getElementById("f-day");
+  fn.classList.toggle("invalid", !name); if(!name) ok=false;
+  const phoneOk = /^(\+34|0034)?[6789]\d{8}$/.test(phone);
+  fp.classList.toggle("invalid", !phoneOk); if(!phoneOk) ok=false;
+  fd.classList.toggle("invalid", !chosenDay); if(!chosenDay) ok=false;
+  if (!ok){ form.querySelector(".invalid input, .invalid .day")?.focus(); return; }
+
+  const teeth = document.getElementById("teethNote");
+  const lines = [
+    "Hola, quiero pedir cita en Clínica Dental Ilident.",
+    `Nombre: ${name}`,
+    `Teléfono: ${phone}`,
+    `Motivo: ${form.reason.value}`,
+    `Para: ${form.who.value.replace("Para ","")}`,
+    `Día preferido: ${chosenDay.dataset.label}, ${chosenSlot.toLowerCase()}`
+  ];
+  if (teeth.classList.contains("show")) lines.push(teeth.textContent);
+  if (form.notes.value.trim()) lines.push(`Comentario: ${form.notes.value.trim()}`);
+  const msg = lines.join("\n");
+  document.getElementById("doneMsg").textContent = msg;
+
+  const url = CONFIG.whatsapp
+    ? `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`
+    : `mailto:${CONFIG.email}?subject=${encodeURIComponent("Solicitud de cita: "+name)}&body=${encodeURIComponent(msg)}`;
+  window.open(url, CONFIG.whatsapp ? "_blank" : "_self");
+
+  form.style.display="none";
+  const done = document.getElementById("done"); done.classList.add("show");
+  done.querySelector("h3").setAttribute("tabindex","-1"); done.querySelector("h3").focus();
+});
+document.getElementById("copyMsg").onclick = async (e)=>{
+  try { await navigator.clipboard.writeText(document.getElementById("doneMsg").textContent); e.target.textContent="Mensaje copiado"; }
+  catch { e.target.textContent="Selecciona el texto y cópialo"; }
+};
+document.getElementById("editMsg").onclick = ()=>{
+  document.getElementById("done").classList.remove("show"); form.style.display="";
+  document.getElementById("copyMsg").textContent="Copiar mensaje";
+};
+</script>
+</body>
+</html>
